@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import Login from "../Login/Login";
 import "./styles/InitialHeader.css";
+import logo from "../../assets/logo.png";
 
 function InitialHeader(props) {
   const navigate = useNavigate();
@@ -8,13 +8,21 @@ function InitialHeader(props) {
   const loginPage = () => {
     navigate("/login");
   };
+  const registerPage = () => {
+    navigate("/register");
+  };
 
   return (
-    <div className="header">
-      <div className="header-right">
-        <button onClick={loginPage}>Login</button>
-        <button className="register" href="#register">
-          Sign up
+    <div className="initialheader">
+      <div className="logoNutraMeals"> 
+        <a href="#home">
+           <img src={logo} alt=""></img>
+        </a>
+      </div>
+      <div>
+        <button onClick={loginPage} className="btn-bookH animated fadeInUp scrollto">Login</button>
+        <button onClick={registerPage} className="register btn-bookH animated fadeInUp scrollto" href="#register">
+          Register
         </button>
       </div>
     </div>

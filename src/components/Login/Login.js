@@ -1,7 +1,15 @@
-import { useState } from "react";
+import { useState} from "react";
 import "./login.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import {
+	Typography,
+    Paper,
+    Container,
+    Grid,
+    TextField,
+} from "@material-ui/core";
+import logo from "../../assets/logo.png";
 
 function Login(props) {
   const [username, setUsername] = useState("");
@@ -12,17 +20,15 @@ function Login(props) {
 
   function login(loginDetails) {
     axios
-      .post(" http://localhost:8080/login", loginDetails)
+      .post(" http://localhost:8082/login", loginDetails)
       .then((response, body) => {
         console.log(response.data);
-        if (response.status === 200 && response.data === "Login Successful") {
-          console.log(response.data);
+        if (response.status === 200 && response.data !== null) {
+          var user = response.data;
+          localStorage.setItem("logUserName", user.userName);
+          localStorage.setItem("logUser",user.firstName + " "+user.lastName);          
           navigate("/homepage");
-          // localStorage.setItem("userData", this.state.loginDetails.userName);
-
-          // this.props.history.push("/");
         }
-        console.log(response);
       })
       .catch(function (error) {
         // handle error
@@ -67,33 +73,56 @@ function Login(props) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="login-page">
-        <div>
-          <label>Sign in</label>
+      <div className="initialheader">
+        <div className="logoNutraMeals"> 
+          <a href="#home">
+            <img src={logo} alt=""></img>
+          </a>
         </div>
-        <div className="input-container">
-          <label>Username</label>
-          <input
-            type="text"
-            name="text"
-            onChange={usernameChangeHandler}
-            value={username}
-          ></input>
-          {!enteredUsernameIsValid && <p>Username field cannot be empty.</p>}
-        </div>
-        <div className="input-container">
-          <label>Password</label>
-          <input
-            type="password"
-            name="password"
-            onChange={passwordChangeHandler}
-            value={password}
-          ></input>
-          {!enteredPasswordIsValid && <p>Password cannot be empty.</p>}
-        </div>
-        <button type="outlined">Submit</button>
       </div>
-    </form>
+      <div className="loginBox" >
+          <Paper elevation={5} color="primary.main">
+          <Container maxWidth="md" className="formContainer">
+                  <Grid container  direction="column" justifyContent="center" spacing={5} className="login-form">
+                          <Grid item>
+                          <Typography component="h1" variant="h5" style={{ color: "black" }}>
+                              Sign in
+                          </Typography>
+                          </Grid>
+                          <Grid item>
+                              <TextField
+                                      required
+                                      label="User name"
+                                      variant="outlined"
+                                      fullWidth
+                                      onChange={usernameChangeHandler}
+                                      value={username}
+                                  />
+                          {!enteredUsernameIsValid && <p>Username field cannot be empty.</p>}
+                          </Grid>
+                          <Grid item>
+                              <TextField
+                                      required
+                                      label="Password"
+                                      variant="outlined"
+                                      type ="password"
+                                      fullWidth
+                                      onChange={passwordChangeHandler}
+                                      value={password}
+                                  />
+                          {!enteredPasswordIsValid && <p>Password cannot be empty.</p>}
+                          </Grid>
+                          <Grid item>
+                              <button className="btn-login">
+                                      Submit
+                              </button>
+                          </Grid>
+                      
+                  </Grid>
+          </Container> 
+          </Paper>
+      </div>
+      </form>
   );
 }
 export default Login;

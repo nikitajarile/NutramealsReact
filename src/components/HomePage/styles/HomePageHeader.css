@@ -30,13 +30,15 @@ body {
 
 .header a {
   float: left;
-  color: white;
+  color: #cda45e;
   text-align: center;
   padding: 12px;
   text-decoration: none;
   font-size: 18px;
   line-height: 25px;
   border-radius: 4px;
+  font-weight: bold;
+  font-size: 15pt;
 }
 
 .header .signout {
@@ -44,21 +46,23 @@ body {
   color: black;
   border-radius: 50px;
 }
-/* .header .menu-icon-logo {
-  width: 10vh;
-} */
+.header .menu-icon-logo {
+  height: 12vh;
+  width: 15vh;
+  
+} 
 .image-container {
   object-fit: contain;
-  height: 8vh;
+  margin-left: 5%;
 }
-/* .header a:hover {
+.header a:hover {
   background-color: #ddd;
   color: black;
-} */
+}
 
 .header-right {
   float: right;
-}
+} 
 
 @media screen and (max-width: 500px) {
   .header a {
@@ -117,3 +121,4 @@ body {
     font-size: 18px;
   }
 }
+

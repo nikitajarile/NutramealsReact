@@ -1,11 +1,10 @@
 import { IconButton, InputAdornment, Link, TextField } from "@material-ui/core";
-import Button from "@mui/material/Button";
 import "./styles/HomePageBody.css";
 import SearchIcon from "@material-ui/icons/Search";
-import React, { useState } from "react";
+import React from "react";
 
 function HomePageBody(props) {
-  const [restaurantname, setrestaurantName] = useState("");
+  /*const [restaurantname, setrestaurantName] = useState("");
   //   state = {
   //     restaurantDetails: {
   //       restaurantName: "",
@@ -21,7 +20,7 @@ function HomePageBody(props) {
     //     restaurantName: event.target.value,
     //   },
     // }));
-  };
+  };*/
   return (
     <div className="HomePageBody">
       <div>
@@ -63,22 +62,7 @@ function HomePageBody(props) {
         ></TextField>
       </div>
       <div className="button-div">
-        <Button
-          className="button"
-          variant="contained"
-          sx={{
-            borderRadius: 50,
-            backgroundColor: "#21b6ae",
-            color: "black",
-            textAlign: "center",
-            fontSize: 13,
-          }}
-          to={{
-            pathname: "/listRestaurants",
-          }}
-        >
-          List All Restaurants
-        </Button>
+      <button className="btn-rest animated fadeInUp scrollto">List All Restaurants</button>
       </div>
     </div>
   );
