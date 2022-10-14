@@ -19,8 +19,9 @@ function Login(props) {
   const navigate = useNavigate();
 
   function login(loginDetails) {
+    console.log(process.env.REACT_APP_LOGIN);
     axios
-      .post(" http://localhost:8082/login", loginDetails)
+      .post(process.env.REACT_APP_LOGIN, loginDetails)
       .then((response, body) => {
         console.log(response.data);
         if (response.status === 200 && response.data !== null) {

@@ -19,7 +19,7 @@ function SideBar(props) {
         };
     
         axios
-          .post(" http://localhost:8082/viewAccount", loginDetails)
+          .post(process.env.REACT_APP_ACCOUNT, loginDetails)
           .then((response, body) => {
             if (response.status === 200) {
               console.log(response.data);
