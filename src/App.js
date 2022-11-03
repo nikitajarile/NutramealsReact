@@ -14,6 +14,8 @@ import LoggedInPage from "./components/HomePage/LoggedInPage";
 import Register from "./components/Login/Register";
 import AccountSummary from "./components/AccountSummary/AccountSummary";
 import Error from "./components/error";
+import SearchFoodItem from "./components/Search/SearchFoodItem";
+import RestaurantList from "./components/Search/RestaurantList";
 
 function App() {
   return (
@@ -26,6 +28,8 @@ function App() {
         <Route path="/signOut" element={<HomePage />} />
         <Route path="/accountSummary" element={<AccountSummary />} />
         <Route path="/errorPage" element={<Error />} />
+        <Route path="/searchFoodItem" element={<SearchFoodItem/>} />
+        <Route path="/restaurantList" element={<RestaurantList/>} />
       </Routes>
     </div>
   );

@@ -2,8 +2,41 @@ import { IconButton, InputAdornment, Link, TextField } from "@material-ui/core";
 import "./styles/HomePageBody.css";
 import SearchIcon from "@material-ui/icons/Search";
 import React from "react";
+import { useState} from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function HomePageBody(props) {
+  const [foodItem, setFoodItem] = useState("");
+  const navigate = useNavigate();
+
+  const foodItemChangeHandler = (event) => {
+    setFoodItem(event.target.value);
+  };
+
+  const onSearchFoodItem = (event) => {
+    const restautantDetails = {
+      foodItem: foodItem,
+    };
+    axios
+      .post(process.env.REACT_APP_SEARCH, restautantDetails)
+      .then((response, body) => {
+        console.log(response.data);
+        if (response.status === 200 && response.data !== null) {
+          navigate("/searchFoodItem",{state : response.data});
+        }
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
+  };
+  const onListAllRestaurants = (event) => {
+    navigate("/restaurantList");
+  };
   /*const [restaurantname, setrestaurantName] = useState("");
   //   state = {
   //     restaurantDetails: {
@@ -32,37 +65,28 @@ function HomePageBody(props) {
       <div className="textfield-div">
         <TextField
           className="textfield"
-          onChange={(value) => this.changeHandlerRestaurantName(value)}
+          onChange={foodItemChangeHandler}
           id="mySearch"
           variant="outlined"
           size="small"
-          placeholder="Search for restaurant"
+          placeholder="Search for Food Item"
           title="Type in a category"
           InputProps={{
             endAdornment: (
               <InputAdornment position="end">
                 <IconButton
                   component={Link}
-                  to={{
-                    pathname: "/searchRestaurant",
-
-                    // state: {
-                    //   restaurantDetails: {
-                    //     restaurantName:
-                    //       this.state.restaurantDetails.restaurantName,
-                    //   },
-                    // },
-                  }}
-                >
+                  onClick={(e) => onSearchFoodItem(e)}
+                  >
                   <SearchIcon />
                 </IconButton>
-              </InputAdornment>
+               </InputAdornment>
             ),
           }}
         ></TextField>
       </div>
       <div className="button-div">
-      <button className="btn-rest animated fadeInUp scrollto">List All Restaurants</button>
+      <button className="btn-rest animated fadeInUp scrollto" onClick={onListAllRestaurants}>List All Restaurants</button>
       </div>
     </div>
   );
