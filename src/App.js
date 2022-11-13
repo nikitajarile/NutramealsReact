@@ -16,6 +16,7 @@ import AccountSummary from "./components/AccountSummary/AccountSummary";
 import Error from "./components/error";
 import SearchFoodItem from "./components/Search/SearchFoodItem";
 import RestaurantList from "./components/Search/RestaurantList";
+import Checkout from "./components/Order/Checkout";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/errorPage" element={<Error />} />
         <Route path="/searchFoodItem" element={<SearchFoodItem/>} />
         <Route path="/restaurantList" element={<RestaurantList/>} />
+        <Route path="/checkout" element={<Checkout/>} />
       </Routes>
     </div>
   );
