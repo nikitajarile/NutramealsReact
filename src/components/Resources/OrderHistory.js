@@ -1,5 +1,13 @@
 const orderHistory = [
   {
+    restaurantName: "DACKS CUISINE",
+    day: "Fri",
+    date: "Nov 18",
+    cost: "$21.99",
+    quantity: "2 items",
+    orderName: "Veggie Wrap",
+  },
+  {
     restaurantName: "Papa Johns",
     day: "Fri",
     date: "Nov 1",

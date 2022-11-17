@@ -6,7 +6,7 @@ function OrderHistory() {
     <div className="wrapper">
       {/* <div className="navBar"></div> */}
       <div className="body">
-        <h3>Orders</h3>
+        <h3>ORDERS</h3>
 
         {orderHistory.map((orders, index) => (
           <div className="card">
