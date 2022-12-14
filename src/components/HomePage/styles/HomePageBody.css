@@ -74,6 +74,18 @@ h2 {
   margin-left: 15px;
 }
 
+.ads {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+
+  background-color: rgba(255, 255, 255, 0.774);
+  padding: 0px 10px;
+}
+
 @media screen and (max-width: 500px) {
   h1 {
     font-size: 4.5em;

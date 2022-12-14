@@ -114,6 +114,14 @@ function SideBar(props) {
       >
         Add Restaurant
       </NavLink>
+      <NavLink
+        className="nav-link menuList"
+        to={{
+          pathname: "/addAdvertisement",
+        }}
+      >
+        Post An Ad
+      </NavLink>
       <a href="#deliver" className="nav-link">
         <div className="menuList">Sign up to deliver</div>
       </a>

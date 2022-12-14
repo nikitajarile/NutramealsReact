@@ -5,6 +5,7 @@ import React from "react";
 import { useState} from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import ads from "../Resources/Ads";
 
 function HomePageBody(props) {
   const [foodItem, setFoodItem] = useState("");
@@ -56,6 +57,13 @@ function HomePageBody(props) {
   };*/
   return (
     <div className="HomePageBody">
+      {ads.length !== 0 && (
+        <div className="ads">
+          <h4>{ads[0].restaurantName}</h4>
+          <h4>{ads[0].restaurantSlogan}</h4>
+          <h4>{ads[0].restaurantDescription}</h4>
+        </div>
+      )}
       <div>
         <h1>NutraMeals</h1>
       </div>

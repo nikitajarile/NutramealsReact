@@ -18,6 +18,8 @@ import SearchFoodItem from "./components/Search/SearchFoodItem";
 import RestaurantList from "./components/Search/RestaurantList";
 import Checkout from "./components/Order/Checkout";
 import OrderHistory from "./components/Order/OrderHistory";
+import Help from "./components/help";
+import Advertisement from "./components/HomePage/Advertisement";
 
 function App() {
   return (
@@ -34,6 +36,8 @@ function App() {
         <Route path="/restaurantList" element={<RestaurantList />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/orderHistory" element={<OrderHistory />} />
+        <Route path="/help" element={<Help />} />
+        <Route path="/addAdvertisement" element={<Advertisement />} />
       </Routes>
     </div>
   );
